@@ -33,9 +33,9 @@ namespace DT
     public:
         std::string name = "Untitled Entity";
 
-        Tag(Context *ctx) {}
+        Tag(Context *context) {}
 
-        void InspectorMenu(Context *ctx, const float &dt) override
+        void InspectorMenu(Context *context, const float &dt) override
         {
             if (ImGui::CollapsingHeader("Tag"))
             {

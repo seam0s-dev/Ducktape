@@ -36,14 +36,14 @@ namespace DT
     class Camera : public Component, public BaseCamera
     {
     public:
-        Camera(Context *ctx) : BaseCamera(ctx)
+        Camera(Context *context) : BaseCamera(context)
         {
             activeCamera = std::shared_ptr<Camera>(this);
         }
 
-        void Init(Context *ctx) override;
-        void Tick(Context *ctx, const float &dt) override;
-        void InspectorMenu(Context *ctx, const float &dt) override;
+        void Init(Context *context) override;
+        void Tick(Context *context, const float &dt) override;
+        void InspectorMenu(Context *context, const float &dt) override;
 
         glm::vec3 &GetPosition() override
         {

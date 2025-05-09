@@ -35,7 +35,7 @@ namespace DT
     class Scene
     {
     public:
-        Scene(Context &ctx);
+        Scene(Context &context);
 
         std::unordered_set<Entity> GetEntities();
         ErrorOr<std::unordered_map<std::type_index, std::shared_ptr<Component>>> View(Entity entity);

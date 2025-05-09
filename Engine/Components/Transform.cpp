@@ -89,7 +89,7 @@ namespace DT
         rotation = glm::quatLookAtLH(glm::normalize(at - translation), {0.f, 1.f, 0.f});
     }
 
-    void Transform::InspectorMenu(Context *ctx, const float &dt)
+    void Transform::InspectorMenu(Context *context, const float &dt)
     {
         if (ImGui::CollapsingHeader("Transform"))
         {

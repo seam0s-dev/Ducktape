@@ -36,13 +36,13 @@ namespace DT
     public:
         Scene activeScene;
 
-        SceneManager(Context &ctx, const json &sceneManagerData);
+        SceneManager(Context &context, const json &sceneManagerData);
 
         void LoadDemoScene();
         void LoadScene();
 
-        void Init(Context *ctx);
-        void Tick(Context *ctx, const float &deltaTime);
-        void EditorTick(Context *ctx, const float &deltaTime);
+        void Init(Context *context);
+        void Tick(Context *context, const float &deltaTime);
+        void EditorTick(Context *context, const float &deltaTime);
     };
 }

@@ -42,9 +42,9 @@ namespace DT
         Entity entity;
         Scene *scene;
 
-        virtual void Init(Context *ctx) {}
-        virtual void Tick(Context *ctx, const float &dt) {}
-        virtual void EditorTick(Context *ctx, const float &dt) {}
-        virtual void InspectorMenu(Context *ctx, const float &dt) {}
+        virtual void Init(Context *context) {}
+        virtual void Tick(Context *context, const float &dt) {}
+        virtual void EditorTick(Context *context, const float &dt) {}
+        virtual void InspectorMenu(Context *context, const float &dt) {}
     };
 }

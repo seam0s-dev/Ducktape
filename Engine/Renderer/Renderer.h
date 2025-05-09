@@ -40,7 +40,7 @@ namespace DT
     class Renderer
     {
     public:
-        Renderer(Context &ctx, const json &rendererData);
+        Renderer(Context &context, const json &rendererData);
 
         void BeginScene(BaseCamera *camera);
         void EndScene();

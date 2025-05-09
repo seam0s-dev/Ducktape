@@ -31,9 +31,9 @@ SOFTWARE.
 #include <Components/Transform.h>
 
 #define REGISTER_COMPONENT(component)                                                   \
-    DT_DLL_EXPORT std::shared_ptr<DT::Component> GetInstanceOf##component(Context *ctx) \
+    DT_DLL_EXPORT std::shared_ptr<DT::Component> GetInstanceOf##component(Context *context) \
     {                                                                                   \
-        return std::make_shared<component>(ctx);                                        \
+        return std::make_shared<component>(context);                                        \
     }                                                                                   \
     DT_DLL_EXPORT std::type_index GetTypeIndexOf##component()                           \
     {                                                                                   \

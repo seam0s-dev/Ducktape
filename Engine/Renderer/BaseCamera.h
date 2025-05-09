@@ -41,9 +41,9 @@ namespace DT
 
         static std::unordered_set<BaseCamera *> cameras;
 
-        BaseCamera(Context *ctx)
+        BaseCamera(Context *context)
         {
-            Window *window = ctx->GetService<Window>().Fatal("BaseCamera::BaseCamera()");
+            Window *window = context->GetService<Window>().Fatal("BaseCamera::BaseCamera()");
 
             // FBO
             glGenFramebuffers(1, &FBO);

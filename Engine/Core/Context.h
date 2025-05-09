@@ -26,19 +26,66 @@ SOFTWARE.
 
 #include <Core/Error.h>
 
+// #include <Core/Window.h>
+// #include <Core/Module.h>
+// #include <ECS/SceneManager.h>
+// #include <Renderer/Renderer.h>
+// #include <Core/InputManager.h>
+// #include <Editor.h>
+
+
 namespace DT
 {
+    enum class ContextType
+    {
+        Window,
+        Module,
+        SceneManager,
+        Renderer,
+        InputManager,
+        Editor
+    };
+    
     class Context
     {
     public:
-        // Window
-        // Module
-        // SceneManager
-        // Renderer
-        // InputManager 
-        // Editor
+        // Window window;
+        // Module gameModule;
+        // SceneManager sceneManager;
+        // Renderer renderer;
+        // InputManager input;
+        // Editor editor;
+
         std::filesystem::path projectPath;
-        std::unordered_map<std::type_index, void*> services; 
+        std::unordered_map<std::type_index, void*> services;
+
+        // void AttachService(ContextType type, void *service)
+        // {
+        //     switch (type)
+        //     {
+        //     case ContextType::Window:
+        //         window(context, projectData.value("window", json::object()), &err);
+        //         break;
+        //     case ContextType::Module:
+        //         AttachService((Module *)service);
+        //         break;
+        //     case ContextType::SceneManager:
+        //         AttachService((SceneManager *)service);
+        //         break;
+        //     case ContextType::Renderer:
+        //         AttachService((Renderer *)service);
+        //         break;
+        //     case ContextType::InputManager:
+        //         AttachService((InputManager *)service);
+        //         break;
+        //     case ContextType::Editor:
+        //         AttachService((Editor *)service);
+        //         break;
+        //     default:
+        //         std::cerr << "[FATAL] Unknown context type.\n";
+        //         break;
+        //     }
+        // }
 
         template <typename T>
         Error AttachService(T *service)

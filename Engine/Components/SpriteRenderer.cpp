@@ -31,12 +31,12 @@ SOFTWARE.
 
 namespace DT
 {
-    SpriteRenderer::SpriteRenderer(Context *ctx) : 
-        material(Shader::Default(*ctx))
+    SpriteRenderer::SpriteRenderer(Context *context) : 
+        material(Shader::Default(*context))
     {
         PROFILE();
 
-        renderer = ctx->GetService<Renderer>().Fatal("SpriteRenderer::SpriteRenderer()");
+        renderer = context->GetService<Renderer>().Fatal("SpriteRenderer::SpriteRenderer()");
     }
 
     void SpriteRenderer::SetSprite(const std::filesystem::path &texturePath)
@@ -46,14 +46,14 @@ namespace DT
         material.diffuseMap = Texture::Load(texturePath).Fatal("SpriteRenderer::SetSprite()");
     }
 
-    void SpriteRenderer::Init(Context *ctx)
+    void SpriteRenderer::Init(Context *context)
     {
         PROFILE();
 
         transform = scene->Require<Transform>(entity).Fatal("SpriteRenderer::Init()");
     }
 
-    void SpriteRenderer::Tick(Context *ctx, const float &dt)
+    void SpriteRenderer::Tick(Context *context, const float &dt)
     {
         PROFILE();
 
@@ -61,10 +61,10 @@ namespace DT
             mesh.Draw(*renderer, transform->GetModelMatrix(), material);
     }
 
-    void SpriteRenderer::EditorTick(Context *ctx, const float &dt)
+    void SpriteRenderer::EditorTick(Context *context, const float &dt)
     {
         PROFILE();
 
-        Tick(ctx, dt);
+        Tick(context, dt);
     }
 }

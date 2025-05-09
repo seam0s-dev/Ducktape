@@ -12,14 +12,14 @@ public:
     glm::vec3 orientation;
     char dir = 'x';
 
-    TransformInspector(Context *ctx) {}
+    TransformInspector(Context *context) {}
 
-    void Init(Context *ctx) override
+    void Init(Context *context) override
     {
         transform = scene->Require<Transform>(entity).Fatal("TransformInspector::Init()");
     }
 
-    void Tick(Context *ctx, const float &dt) override
+    void Tick(Context *context, const float &dt) override
     {
         if (dir == 'x')
             orientation.x += sensitivity * dt;

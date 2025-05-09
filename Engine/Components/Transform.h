@@ -36,7 +36,7 @@ namespace DT
         glm::quat rotation = glm::quat(0.0f, 0.0f, 0.0f, 0.0f);
         glm::vec3 scale = glm::vec3(1.0f, 1.0f, 1.0f);
 
-        Transform(Context *ctx) {}
+        Transform(Context *context) {}
 
         glm::mat4 GetModelMatrix();
         void SetModelMatrix(glm::mat4 model);
@@ -47,6 +47,6 @@ namespace DT
         void SetEulerRotation(glm::vec3 eulerRotation);
         void LookAt(const glm::vec3 &at);
     
-        void InspectorMenu(Context *ctx, const float &dt) override;
+        void InspectorMenu(Context *context, const float &dt) override;
     };
 }

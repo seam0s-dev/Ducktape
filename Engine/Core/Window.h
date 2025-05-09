@@ -38,7 +38,7 @@ namespace DT
     class Window
     {
     public:
-        Window(Context &ctx, const json &windowData, Error *err);
+        Window(Context &context, const json &windowData, Error *err);
         ~Window();
 
         GLFWwindow *GetRawWindowPointer()

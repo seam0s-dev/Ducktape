@@ -26,12 +26,12 @@ SOFTWARE.
 #include <Components/Tag.h>
 #include <Core/Module.h>
 
-typedef std::shared_ptr<DT::Component>(*GetInstanceOfFunc)(DT::Context *ctx);
+typedef std::shared_ptr<DT::Component>(*GetInstanceOfFunc)(DT::Context *context);
 typedef std::type_index(*GetTypeIndexOfFunc)();
 
 namespace DT
 {
-    Scene::Scene(Context &ctx) : context(ctx)
+    Scene::Scene(Context &context) : context(context)
     {
         PROFILE();
 

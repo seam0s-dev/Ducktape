@@ -36,7 +36,7 @@ namespace DT
         bool isOpen = true;
         Editor *editor;
 
-        virtual void Init(Context &ctx) {}
-        virtual void Tick(Context &ctx, const float &dt) {}
+        virtual void Init(Context &context) {}
+        virtual void Tick(Context &context, const float &dt) {}
     };
 }

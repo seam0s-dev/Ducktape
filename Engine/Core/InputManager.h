@@ -231,7 +231,7 @@ namespace DT
     class InputManager
     {
     public:
-        InputManager(Context &ctx);
+        InputManager(Context &context);
 
         void Process();
 

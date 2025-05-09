@@ -26,15 +26,15 @@ SOFTWARE.
 
 namespace DT
 {
-    void Camera::Init(Context *ctx)
+    void Camera::Init(Context *context)
     {
         PROFILE();
 
         transform = scene->Require<Transform>(entity).Fatal("Camera::Init()");
-        window = ctx->GetService<Window>().Fatal("Camera::Init()");
+        window = context->GetService<Window>().Fatal("Camera::Init()");
     }
 
-    void Camera::Tick(Context *ctx, const float &dt)
+    void Camera::Tick(Context *context, const float &dt)
     {
         PROFILE();
 
@@ -48,7 +48,7 @@ namespace DT
             projection = glm::perspectiveLH(glm::radians(fieldOfView), window->GetWindowSize().x / window->GetWindowSize().y, nearPlane, farPlane);
     }
 
-    void Camera::InspectorMenu(Context *ctx, const float &dt)
+    void Camera::InspectorMenu(Context *context, const float &dt)
     {
         if (ImGui::CollapsingHeader("Camera"))
         {

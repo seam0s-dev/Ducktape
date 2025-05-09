@@ -101,11 +101,11 @@ namespace DT
         }
         
         static ErrorOr<Shader> Load(const std::filesystem::path &fragPath, const std::filesystem::path &vertPath);
-        static Shader Default(Context &ctx);
+        static Shader Default(Context &context);
 
         static void CheckCompileErrors(unsigned int shader, const std::string &shaderCode, Error *error);
         static void CheckLinkErrors(unsigned int program, Error *error);
-        static void ClearCache(Context &ctx);
+        static void ClearCache(Context &context);
     
     private:
         static inline std::unordered_map<std::filesystem::path, Shader> cache;

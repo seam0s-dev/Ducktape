@@ -26,7 +26,7 @@ SOFTWARE.
 
 namespace DT
 {
-    SceneManager::SceneManager(Context &ctx, const json &sceneManagerData) : activeScene(ctx)
+    SceneManager::SceneManager(Context &context, const json &sceneManagerData) : activeScene(context)
     {
         PROFILE();
 
@@ -45,7 +45,7 @@ namespace DT
         PROFILE();
     }
     
-    void SceneManager::Init(Context *ctx)
+    void SceneManager::Init(Context *context)
     {
         PROFILE();
         
@@ -53,26 +53,26 @@ namespace DT
         {
             for (std::pair<const std::type_index, std::shared_ptr<DT::Component>> &component : activeScene.View(entity).Fatal("SceneManager::Init()"))
             {
-                component.second.get()->Init(ctx);
+                component.second.get()->Init(context);
             }
         }
     }
 
-    void SceneManager::Tick(Context *ctx, const float &deltaTime)
+    void SceneManager::Tick(Context *context, const float &deltaTime)
     {
         PROFILE();
 
         for (Entity entity : activeScene.GetEntities())
             for (std::pair<const std::type_index, std::shared_ptr<DT::Component>> &component : activeScene.View(entity).Fatal("SceneManager::Tick()"))
-                component.second->Tick(ctx, deltaTime);
+                component.second->Tick(context, deltaTime);
     }
 
-    void SceneManager::EditorTick(Context *ctx, const float &deltaTime)
+    void SceneManager::EditorTick(Context *context, const float &deltaTime)
     {
         PROFILE();
 
         for (Entity entity : activeScene.GetEntities())
             for (std::pair<const std::type_index, std::shared_ptr<DT::Component>> &component : activeScene.View(entity).Fatal("SceneManager::Tick()"))
-                component.second->EditorTick(ctx, deltaTime);
+                component.second->EditorTick(context, deltaTime);
     }
 }

@@ -36,13 +36,13 @@ namespace DT
     class SpriteRenderer : public Component
     {
     public:
-        SpriteRenderer(Context *ctx);
+        SpriteRenderer(Context *context);
 
         void SetSprite(const std::filesystem::path &texturePath);
         
-        void Init(Context *ctx) override;
-        void Tick(Context *ctx, const float &dt) override;
-        void EditorTick(Context *ctx, const float &dt) override;
+        void Init(Context *context) override;
+        void Tick(Context *context, const float &dt) override;
+        void EditorTick(Context *context, const float &dt) override;
 
     private:
         Mesh &mesh = Mesh::Quad();

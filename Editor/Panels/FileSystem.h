@@ -31,7 +31,7 @@ namespace DT
     class FileSystemPanel : public Panel
     {
     public:
-		void Tick(Context &ctx, const float &dt) override
+		void Tick(Context &context, const float &dt) override
         {
             PROFILE();
             

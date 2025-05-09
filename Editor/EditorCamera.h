@@ -35,7 +35,7 @@ namespace DT
 
         using BaseCamera::BaseCamera;
 
-        EditorCamera(Context *ctx) : BaseCamera(ctx), transform(ctx) {}
+        EditorCamera(Context *context) : BaseCamera(context), transform(context) {}
 
         void Recalculate(Window *window)
         {

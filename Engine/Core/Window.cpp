@@ -27,7 +27,7 @@ SOFTWARE.
 
 namespace DT
 {
-    Window::Window(Context &ctx, const json &windowData, Error *err)
+    Window::Window(Context &context, const json &windowData, Error *err)
     {
         PROFILE();
 
@@ -88,7 +88,7 @@ namespace DT
         if (vsync)
             glfwSwapInterval(0);
 
-        glfwSetWindowUserPointer(window, reinterpret_cast<void *>(&ctx));
+        glfwSetWindowUserPointer(window, reinterpret_cast<void *>(&context));
 
         std::cout << "[LOG] Window Constructed.\n";
     }

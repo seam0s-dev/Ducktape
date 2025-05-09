@@ -58,19 +58,19 @@ public:
 
     float lastx;
 
-    FreeLookCamera(Context *ctx) {}
+    FreeLookCamera(Context *context) {}
 
-    void Init(Context *ctx) override
+    void Init(Context *context) override
     {
         PROFILE();
 
         transform = scene->Require<Transform>(entity).Fatal("FreeLookCamera::Init()");
         camera = scene->Require<Camera>(entity).Fatal("FreeLookCamera::Init()");
-        window = ctx->GetService<Window>().Fatal("FreeLookCamera::Init()");
-        input = ctx->GetService<InputManager>().Fatal("FreeLookCamera::Init()");
+        window = context->GetService<Window>().Fatal("FreeLookCamera::Init()");
+        input = context->GetService<InputManager>().Fatal("FreeLookCamera::Init()");
     }
 
-    void Tick(Context *ctx, const float &dt) override
+    void Tick(Context *context, const float &dt) override
     {
         PROFILE();
 

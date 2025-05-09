@@ -33,12 +33,12 @@ namespace DT
     class Editor
     {
     public:
-        Editor(Context &ctx);
+        Editor(Context &context);
         ~Editor();
 
-        void Init(Context &ctx);
+        void Init(Context &context);
         void NewFrame();
-        void Tick(Context &ctx, const float &dt);
+        void Tick(Context &context, const float &dt);
         void EndFrame();
 
         void Close();

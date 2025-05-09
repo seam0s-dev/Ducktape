@@ -33,13 +33,13 @@ namespace DT
     class InspectorPanel : public Panel
     {
     public:
-        void Init(Context &ctx) override
+        void Init(Context &context) override
         {
             worldOutliner = editor->GetPanel<WorldOutlinerPanel>().Fatal("InspectorPanel::Init()");
-            sceneManager = ctx.GetService<SceneManager>().Fatal("InspectorPanel::Init()");
+            sceneManager = context.GetService<SceneManager>().Fatal("InspectorPanel::Init()");
         }
 
-		void Tick(Context &ctx, const float &dt) override
+		void Tick(Context &context, const float &dt) override
         {
             PROFILE();
             
@@ -49,7 +49,7 @@ namespace DT
             {
                 auto components = sceneManager->activeScene.View(worldOutliner->GetSelectedEntity()).Fatal("InspectorPanel::Fatal()");
                 for (auto component : components)
-                    component.second->InspectorMenu(&ctx, dt);
+                    component.second->InspectorMenu(&context, dt);
             }
 
             ImGui::End();

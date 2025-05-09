@@ -27,11 +27,11 @@ SOFTWARE.
 
 namespace DT
 {
-    InputManager::InputManager(Context &ctx)
+    InputManager::InputManager(Context &context)
     {
         PROFILE();
 
-        window = ctx.GetService<Window>().Fatal("InputManager::InputManager()");
+        window = context.GetService<Window>().Fatal("InputManager::InputManager()");
 
         glfwSetKeyCallback(window->GetRawWindowPointer(), KeyCallback);
         glfwSetMouseButtonCallback(window->GetRawWindowPointer(), MouseButtonCallback);

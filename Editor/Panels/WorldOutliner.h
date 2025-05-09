@@ -32,14 +32,14 @@ namespace DT
     class WorldOutlinerPanel : public Panel
     {
     public:
-		void Init(Context &ctx) override
+		void Init(Context &context) override
         {
             PROFILE();
             
-            sceneManager = ctx.GetService<SceneManager>().Fatal("WorldOutlinerPanel::Init()");
+            sceneManager = context.GetService<SceneManager>().Fatal("WorldOutlinerPanel::Init()");
         }
 
-		void Tick(Context &ctx, const float &dt) override
+		void Tick(Context &context, const float &dt) override
         {
             PROFILE();
             

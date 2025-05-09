@@ -31,6 +31,12 @@ namespace DT
     class Context
     {
     public:
+        // Window
+        // Module
+        // SceneManager
+        // Renderer
+        // InputManager 
+        // Editor
         std::filesystem::path projectPath;
         std::unordered_map<std::type_index, void*> services; 
 

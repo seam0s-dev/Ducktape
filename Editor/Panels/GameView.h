@@ -32,17 +32,17 @@ namespace DT
     class GameViewPanel : public Panel
     {
     public:
-        void Init(Context &ctx) override
+        void Init(Context &context) override
         {
             PROFILE();
 
             isOpen = false;
             
-            renderer = ctx.GetService<Renderer>().Fatal("GameViewPanel::Init()");
-            window = ctx.GetService<Window>().Fatal("GameViewPanel::Init()");
+            renderer = context.GetService<Renderer>().Fatal("GameViewPanel::Init()");
+            window = context.GetService<Window>().Fatal("GameViewPanel::Init()");
         }
 
-		void Tick(Context &ctx, const float &dt) override
+		void Tick(Context &context, const float &dt) override
         {
             PROFILE();
 

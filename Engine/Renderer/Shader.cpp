@@ -125,7 +125,7 @@ namespace DT
         }
     }
 
-    void Shader::ClearCache(Context &ctx)
+    void Shader::ClearCache(Context &context)
     {
         for (std::pair<const std::filesystem::path, Shader> &it : cache) {
             it.second.Delete();
@@ -133,9 +133,9 @@ namespace DT
         cache.clear();
     }
 
-    Shader Shader::Default(Context &ctx)
+    Shader Shader::Default(Context &context)
     {
-        static ErrorOr<Shader> defaultShader = Shader::Load(ctx.projectPath / "Engine" / "Shaders" / "Default.frag", ctx.projectPath / "Engine" / "Shaders" / "Default.vert");
+        static ErrorOr<Shader> defaultShader = Shader::Load(context.projectPath / "Engine" / "Shaders" / "Default.frag", context.projectPath / "Engine" / "Shaders" / "Default.vert");
         if (defaultShader.HasError())
             ErrorOr<Shader>("Error loading Default shader: \n" + defaultShader.GetError()).Fatal("Shader::Default()");
         return defaultShader.Fatal("Shader::Default()");

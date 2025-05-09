@@ -35,19 +35,19 @@ namespace DT
     public:
         EditorCamera editorCamera;
 
-        WorldViewPanel(Context &ctx) : editorCamera(&ctx),
-                                       translateIcon(Texture::Load(ctx.projectPath / "Engine" / "Icons" / "translate.png").Fatal("WorldViewPanel::WorldViewPanel()")),
-                                       rotateIcon(Texture::Load(ctx.projectPath / "Engine" / "Icons" / "rotate.png").Fatal("WorldViewPanel::WorldViewPanel()")),
-                                       scaleIcon(Texture::Load(ctx.projectPath / "Engine" / "Icons" / "scale.png").Fatal("WorldViewPanel::WorldViewPanel()")) {}
+        WorldViewPanel(Context &context) : editorCamera(&context),
+                                       translateIcon(Texture::Load(context.projectPath / "Engine" / "Icons" / "translate.png").Fatal("WorldViewPanel::WorldViewPanel()")),
+                                       rotateIcon(Texture::Load(context.projectPath / "Engine" / "Icons" / "rotate.png").Fatal("WorldViewPanel::WorldViewPanel()")),
+                                       scaleIcon(Texture::Load(context.projectPath / "Engine" / "Icons" / "scale.png").Fatal("WorldViewPanel::WorldViewPanel()")) {}
 
-        void Init(Context &ctx) override
+        void Init(Context &context) override
         {
             PROFILE();
 
-            renderer = ctx.GetService<Renderer>().Fatal("WorldViewPanel::Init()");
-            window = ctx.GetService<Window>().Fatal("WorldViewPanel::Init()");
-            sceneManager = ctx.GetService<SceneManager>().Fatal("WorldViewPanel::Init()");
-            input = ctx.GetService<InputManager>().Fatal("WorldViewPanel::Init()");
+            renderer = context.GetService<Renderer>().Fatal("WorldViewPanel::Init()");
+            window = context.GetService<Window>().Fatal("WorldViewPanel::Init()");
+            sceneManager = context.GetService<SceneManager>().Fatal("WorldViewPanel::Init()");
+            input = context.GetService<InputManager>().Fatal("WorldViewPanel::Init()");
             worldOutliner = editor->GetPanel<WorldOutlinerPanel>().Fatal("WorldViewPanel::Init()");
 
             input->OnKeyEvent(KEY_T, [&](int action)
@@ -60,7 +60,7 @@ namespace DT
             ImGuizmo::AllowAxisFlip(false);
         }
 
-        void Tick(Context &ctx, const float &dt) override
+        void Tick(Context &context, const float &dt) override
         {
             PROFILE();
 
@@ -275,7 +275,7 @@ namespace DT
             // if (ImGui::ImageButton((ImTextureID)(uintptr_t)playIconId, ImVec2(iconSize, iconSize)))
             // {
             //     runtimeState = RuntimeState::Play;
-            //     ctx.loopManager->gameTick = true;
+            //     context.loopManager->gameTick = true;
             // }
             // if (currentRuntimeState == RuntimeState::Play)
             // {
@@ -293,7 +293,7 @@ namespace DT
             // if (ImGui::ImageButton((ImTextureID)(uintptr_t)pauseIconId, ImVec2(iconSize, iconSize)))
             // {
             //     runtimeState = RuntimeState::Pause;
-            //     ctx.loopManager->gameTick = false;
+            //     context.loopManager->gameTick = false;
             // }
             // if (currentRuntimeState == RuntimeState::Pause)
             // {
@@ -311,8 +311,8 @@ namespace DT
             // if (ImGui::ImageButton((ImTextureID)(uintptr_t)stopIconId, ImVec2(iconSize, iconSize)))
             // {
             //     runtimeState = RuntimeState::Stop;
-            //     ctx.loopManager->gameTick = false;
-            //     ctx.loopManager->sceneTick = true;
+            //     context.loopManager->gameTick = false;
+            //     context.loopManager->sceneTick = true;
             // }
             // if (currentRuntimeState == RuntimeState::Stop)
             // {

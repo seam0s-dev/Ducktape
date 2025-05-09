@@ -32,12 +32,12 @@ SOFTWARE.
 
 namespace DT
 {
-    Editor::Editor(Context &ctx)
+    Editor::Editor(Context &context)
     {
         PROFILE();
             
-        window = ctx.GetService<Window>().Fatal("Editor::Editor()");
-        renderer = ctx.GetService<Renderer>().Fatal("Editor::Editor()");
+        window = context.GetService<Window>().Fatal("Editor::Editor()");
+        renderer = context.GetService<Renderer>().Fatal("Editor::Editor()");
 
         ImGui::CreateContext();
         ImGuiIO &io = ImGui::GetIO();
@@ -47,7 +47,7 @@ namespace DT
         ImGui_ImplGlfw_InitForOpenGL(window->GetRawWindowPointer(), true);
         ImGui_ImplOpenGL3_Init("#version 440");
 
-        io.Fonts->AddFontFromFileTTF((ctx.projectPath / "Engine" / "Fonts" / "Roboto" / "Roboto-Regular.ttf").string().c_str(), 15.f);
+        io.Fonts->AddFontFromFileTTF((context.projectPath / "Engine" / "Fonts" / "Roboto" / "Roboto-Regular.ttf").string().c_str(), 15.f);
         SetupImGuiStyle();
         MaximizeWindow();
 
@@ -63,13 +63,13 @@ namespace DT
         ImGui::DestroyContext();
     }
 
-    void Editor::Init(Context &ctx)
+    void Editor::Init(Context &context)
     {
         PROFILE();
 
         for (std::pair<const std::type_index, DT::Panel *> &panel : panels)
             if (panel.second->isOpen)
-                panel.second->Init(ctx);
+                panel.second->Init(context);
     }
 
     void Editor::NewFrame()
@@ -81,7 +81,7 @@ namespace DT
         ImGui::NewFrame();
     }
 
-    void Editor::Tick(Context &ctx, const float &dt)
+    void Editor::Tick(Context &context, const float &dt)
     {
         PROFILE();
 
@@ -89,7 +89,7 @@ namespace DT
 
         for (std::pair<const std::type_index, DT::Panel *> &panel : panels)
             if (panel.second->isOpen)
-                panel.second->Tick(ctx, dt);
+                panel.second->Tick(context, dt);
     }
 
     void Editor::EndFrame()

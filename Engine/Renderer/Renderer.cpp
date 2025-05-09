@@ -57,10 +57,10 @@ GLenum glCheckError_(const char *file, int line)
 
 namespace DT
 {
-    Renderer::Renderer(Context &ctx, const json &rendererData) : screenShader(Shader::Load(ctx.projectPath / "Engine" / "Shaders" / "Screen.frag", ctx.projectPath / "Engine" / "Shaders" / "Screen.vert").Fatal("Renderer::Renderer()"))
+    Renderer::Renderer(Context &context, const json &rendererData) : screenShader(Shader::Load(context.projectPath / "Engine" / "Shaders" / "Screen.frag", context.projectPath / "Engine" / "Shaders" / "Screen.vert").Fatal("Renderer::Renderer()"))
     {
         renderFrameBuffer = rendererData.value("renderFrameBuffer", true);
-        window = ctx.GetService<Window>().Fatal("Renderer::Renderer()");
+        window = context.GetService<Window>().Fatal("Renderer::Renderer()");
 
         glfwSetFramebufferSizeCallback(window->GetRawWindowPointer(), FramebufferSizeCallback);
 
